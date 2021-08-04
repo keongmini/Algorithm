@@ -1,3 +1,4 @@
+
 # 연결리스트를 이루고 있는 노드
 class LinkedNode:
     def __init__(self, value, next):
