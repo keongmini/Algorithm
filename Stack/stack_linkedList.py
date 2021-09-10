@@ -9,16 +9,18 @@ class Stack:
         self.tail = Node(None,None)
 
     def push(self, item):
-        item_node = Node(item, None)
+        self.item_node = Node(item, None)
 
         if not(self.head.node):
-            self.head.node = item_node
-            self.tail.node = item_node
-            self.head.node.next = self.tail
+            self.head.node = self.item_node
+            self.tail.node = self.item_node
             return
 
-        self.tail.next = item_node
-        self.tail = item_node
+        if not(self.head.next):
+            self.head.next = self.item_node
+
+        self.tail.next = self.item_node
+        self.tail = self.item_node
 
     def pop(self):
         if not (self.head.node):
@@ -28,7 +30,7 @@ class Stack:
         while True:
             if start.next == self.tail:
                 start.next = None
-                self.tail == start
+                self.tail = start
                 return
 
             start = start.next
